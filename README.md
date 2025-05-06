@@ -1,46 +1,46 @@
-Prueba Técnica Junior: Sistema de Gestión de Curso
-Descripción General
-Debes desarrollar una aplicación full-stack para gestionar un curso y sus estudiantes. La aplicación permitirá crear, actualizar y eliminar un curso, así como añadir y remover estudiantes. La prueba evalúa tus habilidades en NestJS para el backend y React para el frontend, con énfasis en integración, manejo de errores y una funcionalidad personalizada.
-Duración estimada: 30 horas.Entrega: Repositorio de GitHub con el código fuente, instrucciones de instalación y un README con decisiones técnicas y cómo ejecutar la aplicación.
+# Prueba Técnica Junior: Sistema de Gestión de Curso
+## Descripción General
+Esta prueba técnica evalúa tus habilidades en el desarrollo full-stack con NestJS (backend) y React (frontend). Deberás construir una aplicación para gestionar un curso y sus estudiantes, permitiendo crear, actualizar y eliminar un curso, así como añadir y remover estudiantes. La aplicación debe incluir una funcionalidad personalizada para calcular un índice de diversidad basado en los dominios de los emails de los estudiantes.
+Duración estimada: 30 horas.Entrega: Repositorio público en GitHub con el código fuente, instrucciones de instalación y este README actualizado con tus decisiones técnicas y cómo ejecutar la aplicación.
 
-Requisitos del Backend (NestJS)
+## Requisitos del Backend (NestJS)
 Tecnologías Obligatorias
 
 Framework: NestJS con TypeScript.
 Base de datos: PostgreSQL (usa TypeORM o Prisma).
-Validación: Usa class-validator para DTOs.
+Validación: class-validator para DTOs.
 Estructura: Modular (controladores, servicios, entidades).
 
-Funcionalidades
+### Funcionalidades
 
-Gestión del Curso:
+#### Gestión del Curso:
 
 POST /course: Crea un curso (nombre, descripción, cupo máximo de estudiantes).
-GET /course: Devuelve el curso (solo puede haber un curso en el sistema).
+GET /course: Devuelve el curso (solo hay un curso en el sistema).
 PATCH /course: Actualiza el curso.
 DELETE /course: Elimina el curso y sus estudiantes asociados.
 
 
-Gestión de Estudiantes:
+#### Gestión de Estudiantes:
 
 POST /course/students: Añade un estudiante al curso (nombre, email). Valida que no supere el cupo máximo.
 GET /course/students: Lista los estudiantes del curso.
 DELETE /course/students/:id: Elimina un estudiante del curso.
 
 
-Requisito Especial:
+#### Requisito Especial:
 
 Calcula un índice de diversidad basado en los dominios de los emails de los estudiantes (ejemplo: @gmail.com, @outlook.com). El índice es el número de dominios únicos dividido por el total de estudiantes, expresado como porcentaje. Devuélvelo en GET /course.
 Ejemplo: 5 estudiantes con dominios @gmail.com, @gmail.com, @outlook.com, @yahoo.com, @hotmail.com → (4 dominios únicos / 5 estudiantes) * 100 = 80%.
 
 
-Manejo de Errores:
+#### Manejo de Errores:
 
 Usa códigos HTTP apropiados (200, 201, 400, 404).
 Implementa un interceptor para formatear errores (ejemplo: { message: "Error description", statusCode: 400 }).
 
 
-Optimización:
+#### Optimización:
 
 Añade un índice en la tabla de estudiantes para acelerar la búsqueda por curso.
 Cachea el índice de diversidad en memoria (usa un servicio en NestJS) para evitar recalcularlo en cada llamada a GET /course.
@@ -48,7 +48,7 @@ Cachea el índice de diversidad en memoria (usa un servicio en NestJS) para evit
 
 
 
-Requisitos del Frontend (React)
+## Requisitos del Frontend (React)
 Tecnologías Obligatorias
 
 Framework: React con TypeScript.
@@ -57,23 +57,23 @@ Estilos: Tailwind CSS (vía CDN).
 Rutas: React Router.
 HTTP: Axios.
 
-Funcionalidades
+### Funcionalidades
 
-Gestión del Curso:
+#### Gestión del Curso:
 
 Página principal (/course) que muestre el nombre, descripción, cupo máximo y el índice de diversidad del curso.
 Botón para crear o actualizar el curso (modal con formulario).
 Botón para eliminar el curso.
 
 
-Gestión de Estudiantes:
+#### Gestión de Estudiantes:
 
 Sección en la página del curso para listar estudiantes (nombre, email).
 Formulario para añadir un estudiante.
 Botón para eliminar un estudiante.
 
 
-Requisito Especial:
+#### Requisito Especial:
 
 Muestra el índice de diversidad con un gauge (medidor) personalizado (sin librerías externas). Usa CSS para crear un semicírculo que se llene según el porcentaje:
 < 50%: Rojo.
@@ -87,7 +87,7 @@ Muestra el índice de diversidad con un gauge (medidor) personalizado (sin libre
 Al pasar el cursor, muestra un tooltip con el cálculo detallado (dominios únicos, total de estudiantes).
 
 
-Optimización:
+#### Optimización:
 
 Usa useMemo para evitar renders innecesarios en la lista de estudiantes.
 Muestra un spinner durante las peticiones HTTP.
@@ -96,7 +96,7 @@ Maneja errores con mensajes al usuario (ejemplo: "Cupo máximo alcanzado").
 
 
 
-Criterios de Evaluación
+## Criterios de Evaluación
 
 Funcionalidad: Cumple todos los requisitos.
 Código limpio: Modular, con nombres claros y comentarios necesarios.
@@ -106,7 +106,7 @@ Creatividad: Solución original para el índice de diversidad y el gauge.
 Documentación: README con instrucciones y decisiones técnicas.
 
 
-Restricciones
+## Restricciones
 
 No uses librerías externas para el gauge del índice de diversidad.
 No copies código de tutoriales o plantillas.
@@ -114,15 +114,27 @@ Usa datos reales en la base de datos (no mocks estáticos).
 Sube el código a un repositorio público en GitHub.
 
 
-Instrucciones de Entrega
+## Instrucciones de Entrega
 
 Crea un repositorio en GitHub con carpetas backend (NestJS) y frontend (React).
-Incluye un README.md con:
-Instrucciones para instalar y ejecutar.
-Explicación de decisiones técnicas (ejemplo: por qué usaste Prisma, cómo cacheaste el índice).
-Captura o video corto de la aplicación funcionando.
+Incluye este README.md actualizado con:
+Instrucciones para instalar y ejecutar el backend y el frontend.
+Explicación de tus decisiones técnicas (ejemplo: por qué usaste Prisma, cómo cacheaste el índice).
+Captura de pantalla o video corto mostrando la aplicación funcionando.
 
 
-Proporciona un archivo .env.example para variables de entorno.
-Comparte el enlace del repositorio.
+Proporciona un archivo .env.example para las variables de entorno.
+Comparte el enlace del repositorio a los correos jvillate@evalua.co y jflautero@evalua.co
+
+
+Ejemplo de Estructura del Repositorio
+├── backend/
+│   ├── src/
+│   ├── .env.example
+│   └── README.md
+├── frontend/
+│   ├── src/
+│   ├── .env.example
+│   └── README.md
+└── README.md (este archivo)
 
