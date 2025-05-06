@@ -7,7 +7,7 @@ Duración estimada: 30 horas.Entrega: Repositorio público en GitHub con el cód
 Tecnologías Obligatorias
 
 Framework: NestJS con TypeScript.
-Base de datos: PostgreSQL (usa TypeORM o Prisma).
+Base de datos: PostgreSQL (usa TypeORM).
 Validación: class-validator para DTOs.
 Estructura: Modular (controladores, servicios, entidades).
 
@@ -53,7 +53,7 @@ Tecnologías Obligatorias
 
 Framework: React con TypeScript.
 Gestión de Estado: React Query para peticiones HTTP.
-Estilos: Tailwind CSS (vía CDN).
+Estilos: Tailwind CSS v4.
 Rutas: React Router.
 HTTP: Axios.
 
@@ -127,14 +127,14 @@ Proporciona un archivo .env.example para las variables de entorno.
 Comparte el enlace del repositorio a los correos jvillate@evalua.co y jflautero@evalua.co
 
 
-Ejemplo de Estructura del Repositorio
-├── backend/
-│   ├── src/
-│   ├── .env.example
-│   └── README.md
-├── frontend/
-│   ├── src/
-│   ├── .env.example
-│   └── README.md
-└── README.md (este archivo)
+Ejemplo de Estructura del Repositorio <br>
+├── backend/ <br>
+│   ├── src/ <br>
+│   ├── .env.example <br>
+│   └── README.md <br>
+├── frontend/ <br>
+│   ├── src/ <br>
+│   ├── .env.example <br>
+│   └── README.md <br>
+└── README.md (este archivo) <br>
 
